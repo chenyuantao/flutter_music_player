@@ -6,13 +6,15 @@ FlutterMethodChannel *_channel;
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
     
-    FlutterMethodChannel* channel = [FlutterMethodChannel
-                                     methodChannelWithName:@"flutter_music_player"
-                                     binaryMessenger:[registrar messenger]];
+    _channel = [FlutterMethodChannel
+                methodChannelWithName:@"flutter_music_player"
+                binaryMessenger:[registrar messenger]];
     FlutterMusicPlayerPlugin* instance = [[FlutterMusicPlayerPlugin alloc] init];
-    [registrar addMethodCallDelegate:instance channel:channel];
-    _channel = channel;
+    [registrar addMethodCallDelegate:instance channel:_channel];
     
+    // play background
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:&sessionError];
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
