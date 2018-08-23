@@ -19,7 +19,6 @@ public class PlayerImplement implements PlayerInterface {
     private Context mContext;
     private String mSource;
     private Callback mCallback;
-    private int mBufferPercent = 0;
     private int mState = State.STOPPED;
 
     public PlayerImplement(Context context) {
@@ -56,7 +55,7 @@ public class PlayerImplement implements PlayerInterface {
         mMediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             @Override
             public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
-                mBufferPercent = i;
+                mCallback.onBufferUpdate(i);
             }
         });
         mMediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() {
@@ -84,7 +83,7 @@ public class PlayerImplement implements PlayerInterface {
 
     private void handleTimeUpdate() {
         if (mState == State.PLAYING && mMediaPlayer != null) {
-            mCallback.onTimeUpdate(mMediaPlayer.getCurrentPosition() / 1000d, mBufferPercent, mMediaPlayer.getDuration() / 1000d);
+            mCallback.onTimeUpdate(mMediaPlayer.getCurrentPosition() / 1000d, mMediaPlayer.getDuration() / 1000d);
             mHandler.postDelayed(mRunnable, 1000);
         } else {
             mHandler.removeCallbacks(mRunnable);

@@ -35,7 +35,9 @@ public interface PlayerInterface {
 
         void onEnded();
 
-        void onTimeUpdate(double position, int bufferPercent, double duration);
+        void onBufferUpdate(int bufferPercent);
+
+        void onTimeUpdate(double position, double duration);
 
         void onError(String msg);
     }

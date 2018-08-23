@@ -1,4 +1,5 @@
 #include "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 #include "GeneratedPluginRegistrant.h"
 
 @implementation AppDelegate

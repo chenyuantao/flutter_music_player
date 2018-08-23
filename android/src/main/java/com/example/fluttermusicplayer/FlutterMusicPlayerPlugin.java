@@ -55,8 +55,13 @@ public class FlutterMusicPlayerPlugin implements MethodCallHandler {
             }
 
             @Override
-            public void onTimeUpdate(double position, int bufferPercent, double duration) {
-                channel.invokeMethod("onTimeUpdate", String.format("{\"position\":%f,\"bufferPercent\":%d,\"duration\":%f}", position, bufferPercent, duration));
+            public void onBufferUpdate(int bufferPercent) {
+                channel.invokeMethod("onBufferUpdate", bufferPercent);
+            }
+
+            @Override
+            public void onTimeUpdate(double position, double duration) {
+                channel.invokeMethod("onTimeUpdate", String.format("{\"position\":%f,\"duration\":%f}", position, duration));
 
             }
 

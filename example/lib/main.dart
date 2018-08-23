@@ -4,21 +4,9 @@ import 'package:flutter_music_player/flutter_music_player.dart';
 void main() => runApp(new MyApp());
 
 const musics = [
-  {
-    'url':
-        'http://fs.open.kugou.com/fb85aeca2a4a841b50a1108ef390ff59/5b7a658b/G093/M01/0C/08/nQ0DAFiOyGiAJXFkADpFudDpIqU734.mp3',
-    'name': '1.Fade - Alan Walker'
-  },
-  {
-    'url':
-        'http://fs.open.kugou.com/7168732cb3b98c86a85d942f0c9e7a84/5b7a6756/G067/M0A/0B/1B/44YBAFejRSKAMHi9ADw_2LCAxko000.mp3',
-    'name': '2.Fade Again - Jiaye'
-  },
-  {
-    'url':
-        'http://fs.open.kugou.com/28cba8533f3e2f279f827a204bd32c10/5b7a67ad/G067/M06/06/09/gw0DAFe4XJCAaxIDADAYAiNTIDA273.mp3',
-    'name': '3.Life - Tobu'
-  },
+  {'url': 'https://bit.ly/2MrpveT', 'name': '1.Lemon Tree'},
+  {'url': 'https://bit.ly/2N9hoja', 'name': '2.Hello, Hello, How Are You?'},
+  {'url': 'https://bit.ly/2BArnwC', 'name': '3.Relaxing Pregnancy'},
 ];
 
 class MyApp extends StatefulWidget {
@@ -62,12 +50,14 @@ class _MyAppState extends State<MyApp> {
           print('onEnded');
           onNextPressed();
         });
-    player.onTimeUpdate = (p, bufferPercent, d) =>
+    player.onTimeUpdate = (p, d) =>
         !isDragging &&
         this.setState(() {
           position = p > d ? d : p;
           duration = d;
         });
+    player.onBufferUpdate =
+        (bufferPercent) => print('onBufferUpdate:' + bufferPercent.toString());
     player.start(musics[currentPlaying]['url']);
   }
 

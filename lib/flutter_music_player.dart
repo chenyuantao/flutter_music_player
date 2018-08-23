@@ -4,8 +4,9 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 typedef void VoidCallback();
-typedef void TimeCallback(double position, int bufferPercent, double duration);
+typedef void TimeCallback(double position, double duration);
 typedef void ErrorCallback(String message);
+typedef void BufferCallback(int bufferPercent);
 
 class FlutterMusicPlayer {
   static const MethodChannel _channel =
@@ -17,6 +18,7 @@ class FlutterMusicPlayer {
   VoidCallback onPause;
   VoidCallback onStop;
   VoidCallback onEnded;
+  BufferCallback onBufferUpdate;
   TimeCallback onTimeUpdate;
   ErrorCallback onError;
 
@@ -45,9 +47,10 @@ class FlutterMusicPlayer {
         break;
       case 'onTimeUpdate':
         Map<String, dynamic> map = jsonDecode(call.arguments);
-        onTimeUpdate != null &&
-            onTimeUpdate(
-                map['position'], map['bufferPercent'], map['duration']);
+        onTimeUpdate != null && onTimeUpdate(map['position'], map['duration']);
+        break;
+      case 'onBufferUpdate':
+        onBufferUpdate != null && onBufferUpdate(call.arguments);
         break;
       case 'onError':
         onCanPlay != null && onError(call.arguments);

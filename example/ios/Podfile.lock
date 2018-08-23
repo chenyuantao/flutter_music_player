@@ -1,0 +1,33 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_music_player (0.0.1):
+    - Flutter
+  - VIMediaCache (0.4)
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_music_player (from `.symlinks/plugins/flutter_music_player/ios`)
+  - VIMediaCache (from `https://github.com/vitoziv/VIMediaCache`, commit `c0f57ba2b8bc661403032f4213d6169d6190be5d`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  flutter_music_player:
+    :path: ".symlinks/plugins/flutter_music_player/ios"
+  VIMediaCache:
+    :commit: c0f57ba2b8bc661403032f4213d6169d6190be5d
+    :git: https://github.com/vitoziv/VIMediaCache
+
+CHECKOUT OPTIONS:
+  VIMediaCache:
+    :commit: c0f57ba2b8bc661403032f4213d6169d6190be5d
+    :git: https://github.com/vitoziv/VIMediaCache
+
+SPEC CHECKSUMS:
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  flutter_music_player: 915d831692ae8d23ddf304b555a66568bbd0af43
+  VIMediaCache: aa650f82cb114c68a343beb4e67416cf5eb2f3a2
+
+PODFILE CHECKSUM: ba8a62dc2aacbd9b53c51c128dcc5bbdd05ea391
+
+COCOAPODS: 1.5.3
