@@ -1,3 +1,5 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+- Add Android Plugin
+- Add iOS Plugin
+- Support iOS background playing

@@ -1,13 +1,15 @@
 name: flutter_music_player
-description: A new flutter plugin project.
+description: Flutter plugin for playing online music which is streaming-caching, background-playing, and easy-to-use.
 version: 0.0.1
-author:
-homepage:
+author: chenyuantao <cyt528300@gmail.com>
+homepage: https://github.com/chenyuantao/flutter_music_player
 
 dependencies:
   flutter:
     sdk: flutter
 
+environment:
+    sdk: ">=1.19.0 <2.0.0"
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 

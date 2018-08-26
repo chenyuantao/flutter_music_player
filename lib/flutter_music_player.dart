@@ -11,6 +11,9 @@ typedef void BufferCallback(int bufferPercent);
 class FlutterMusicPlayer {
   static const MethodChannel _channel =
       const MethodChannel('flutter_music_player');
+  static const StateStopped = 1;
+  static const StatePlaying = 2;
+  static const StatePaused = 3;
 
   VoidCallback onWaiting;
   VoidCallback onCanPlay;
@@ -71,8 +74,4 @@ class FlutterMusicPlayer {
   Future<int> getState() async {
     return await _channel.invokeMethod('getState');
   }
-
-  static const StateStopped = 1;
-  static const StatePlaying = 2;
-  static const StatePaused = 3;
 }
