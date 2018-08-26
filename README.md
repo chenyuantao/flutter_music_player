@@ -8,7 +8,6 @@ Add this to your package's pubspec.yaml file:
 ```
 dependencies:
   flutter_music_player: "^0.0.1"
-
 ```
 Add it to your dart file:
 ```
