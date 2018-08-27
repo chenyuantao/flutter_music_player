@@ -14,7 +14,7 @@ Add it to your dart file:
 import 'package:flutter_music_player/flutter_music_player.dart';
 ```
 
-## How to user
+## How to use
 
 ### Start to play or cut a music
 
